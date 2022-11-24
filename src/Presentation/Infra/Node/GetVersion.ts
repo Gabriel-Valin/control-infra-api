@@ -1,22 +1,16 @@
+import GetNodeVersionInteractor from '@/Domain/Usecase/GetNodeVersionInteractor'
+import QueryNodeRepo from '@/Infra/Repository/Node/QueryNodeRepo'
 import { Controller, Response } from '@/Presentation/Protocol/Controller'
-import { spawn } from 'child_process'
-import { once } from 'events'
+
 
 export default class GetVersion implements Controller {
     public async handle(): Promise<Response> {
-        const nodeVersion = spawn('node', ['--version'])
-        let output = ''
-
-        nodeVersion.stdout.setEncoding('utf-8')
-
-        nodeVersion.stdout.on('data', data => {
-            output += data.toString()
-        })
-
-        await once(nodeVersion, 'close')
+        const queryNodeRepo = new QueryNodeRepo()
+        const nodeVersionInteractor = new GetNodeVersionInteractor(queryNodeRepo)
+        const result = await nodeVersionInteractor.perform()
         return {
             statusCode: 200,
-            data: output
+            data: result
         }
     }
 }
