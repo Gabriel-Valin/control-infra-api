@@ -1,4 +1,4 @@
-import GetVersion from "@/Presentation/Infra/Node/GetVersion"
+import GetVersion from "@/Presentation/Controller/Infra/Node/GetVersion"
 
 const makeSut = (): GetVersion => {
     const sut = new GetVersion()

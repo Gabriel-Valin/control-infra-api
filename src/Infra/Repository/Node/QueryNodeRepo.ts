@@ -4,7 +4,7 @@ import { spawn } from 'child_process'
 import { once } from 'events'
 
 export default class QueryNodeRepo implements QueryNode {
-    public async getNodeVersion(): Promise<string> {
+    public async getNodeVersion(): Promise<{nodeVersion: string}> {
         try {
             const nodeVersion = spawn('node', ['--version'])
             let output = ''
@@ -16,7 +16,9 @@ export default class QueryNodeRepo implements QueryNode {
             })
 
             await once(nodeVersion, 'close')
-            return output
+            return {
+                nodeVersion: output.replace(/[\r\n]/g, '')
+            }
         } catch (error) {
             throw new InfraError("Have error on node version command")
         }
