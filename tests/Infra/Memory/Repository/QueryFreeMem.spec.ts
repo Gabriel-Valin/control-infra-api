@@ -10,6 +10,6 @@ describe('QueryFreeMem', () => {
         const sut = makeSut()
         const result = await sut.getFreeMem()
         expect(result).not.toBeUndefined()
-        expect(result.length).toBeGreaterThan(1)
+        expect(result.freeMem.length).toBeGreaterThan(1)
     })
 })
