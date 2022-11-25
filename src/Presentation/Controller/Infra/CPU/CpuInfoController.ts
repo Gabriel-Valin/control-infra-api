@@ -1,5 +1,5 @@
 import CpuInfoInteractor from "@/Domain/Usecase/CPU/CpuInfoInteractor";
-import QueryCpuInfo from "@/Infra/CPU/Repository/QueryCpuInfo";
+import QueryCpuInfo from "@/Infra/CPU/Repository/QueryCpuInfoRepo";
 import { Controller, Response } from "@/Presentation/Protocol/Controller";
 
 export default class CpuInfoController implements Controller {

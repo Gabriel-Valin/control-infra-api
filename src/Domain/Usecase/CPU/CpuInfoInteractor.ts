@@ -1,4 +1,4 @@
-import { QueryCpu } from "@/Infra/CPU/Repository/QueryCpuInfo"
+import { QueryCpu } from "@/Infra/CPU/Repository/QueryCpuInfoRepo"
 
 export default class CpuInfoInteractor {
     constructor(private readonly queryCPU: QueryCpu) { }

@@ -1,7 +1,7 @@
-import CpuInfoController from "@/Presentation/Controller/Infra/CPU/CpuInfoController"
+import GetFreeMemoryController from "@/Presentation/Controller/Infra/Memory/GetFreeMemController"
 
-const makeSut = (): CpuInfoController => {
-    const sut = new CpuInfoController()
+const makeSut = (): GetFreeMemoryController => {
+    const sut = new GetFreeMemoryController()
     return sut
 }
 
