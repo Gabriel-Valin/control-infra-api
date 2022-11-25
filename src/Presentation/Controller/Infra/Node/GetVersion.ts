@@ -1,5 +1,5 @@
-import GetNodeVersionInteractor from '@/Domain/Usecase/GetNodeVersionInteractor'
-import QueryNodeRepo from '@/Infra/Repository/Node/QueryNodeRepo'
+import GetNodeVersionInteractor from '@/Domain/Usecase/Node/GetNodeVersionInteractor'
+import QueryNodeRepo from '@/Infra/Node/Repository/QueryNodeRepo'
 import { Controller, Response } from '@/Presentation/Protocol/Controller'
 
 

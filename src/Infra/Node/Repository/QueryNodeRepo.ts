@@ -1,4 +1,4 @@
-import { QueryNode } from "@/Domain/Usecase/GetNodeVersionInteractor";
+import { QueryNode } from "@/Domain/Usecase/Node/GetNodeVersionInteractor";
 import { InfraError } from "@/Presentation/Error/InfraError";
 import { spawn, exec } from 'child_process'
 import { once } from 'events'

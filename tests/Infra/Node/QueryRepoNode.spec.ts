@@ -1,4 +1,4 @@
-import QueryNodeRepo from '@/Infra/Repository/Node/QueryNodeRepo'
+import QueryNodeRepo from '@/Infra/Node/Repository/QueryNodeRepo'
 import { InfraError } from '@/Presentation/Error/InfraError'
 import { ChildProcess } from 'child_process'
 
