@@ -36,7 +36,7 @@ export default class CommandRepoNode implements CommandRepo {
                 return 'Invalid Node Version, please install first or typing correctly version.'
             }
             return {
-                newNodeVersion: output.substring(69, 78)
+                newNodeVersion: output.substring(69, 78).slice(0,8)
             }
         } catch (error) {
             throw new InfraError("Have error on node version command")
