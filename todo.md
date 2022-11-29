@@ -1,1 +1,3 @@
 - [ ] Controller Update Version Tests
+- [ ] README.md
+- [ ] Add Badges
