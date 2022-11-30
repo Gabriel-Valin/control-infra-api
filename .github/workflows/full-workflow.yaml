@@ -27,3 +27,32 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm run test
+
+  deploy-test:
+    needs: test-ci
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-20.04
+    concurrency: deploy-to-test
+    environment: test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+      - run: docker build -t control-infra-setup-api .
+      - run: echo "Deploy"
+  deploy-production:
+    needs: test-ci
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-20.04
+    concurrency: deploy-to-production
+    environment: production
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+      - run: docker build -t control-infra-setup-api .
+      - run: echo "Deploy"

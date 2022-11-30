@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config dist/Server.js",
-    "clean": "rimraf dist && rimraf build",
+    "clean": "rimraf dist",
     "build": "npm run clean && tsoa routes && tsoa swagger && tsc -p tsconfig-build.json && tsc-alias",
     "go:dev": "ts-node-dev --respawn --transpile-only -r dotenv/config -r tsconfig-paths/register --exit-child src/Server.ts",
     "husky:prepare": "husky install",

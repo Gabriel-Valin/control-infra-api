@@ -3,10 +3,10 @@
   "noImplicitAdditionalProperties": "throw-on-extras",
   "controllerPathGlobs": ["src/Presentation/Controller/**/**.ts"],
   "spec": {
-    "outputDirectory": "build",
+    "outputDirectory": "src/OpenApi",
     "specVersion": 3
   },
   "routes": {
-    "routesDir": "build"
+    "routesDir": "src/OpenApi"
   }
 }

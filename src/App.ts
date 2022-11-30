@@ -4,9 +4,9 @@ import { internalServerMiddleware } from "@/Presentation/Middleware/ErrorHandlin
 import { nodeRouter } from "@/Presentation/Routes/NodeRoutes"
 import { cpuRouter } from "@/Presentation/Routes/CpuRoutes"
 import { memoryRouter } from "@/Presentation/Routes/MemoryRoutes"
-import { RegisterRoutes } from "../build/routes"
+import { RegisterRoutes } from "@/OpenApi/routes"
 import swaggerUi from 'swagger-ui-express'
-import * as swaggerjson from '../build/swagger.json'
+import * as swaggerjson from '@/OpenApi/swagger.json'
 
 export const app = express()
 

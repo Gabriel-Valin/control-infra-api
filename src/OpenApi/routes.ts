@@ -3,13 +3,13 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { CpuInfoController } from './../src/Presentation/Controller/Infra/CPU/CpuInfoController';
+import { CpuInfoController } from './../Presentation/Controller/Infra/CPU/CpuInfoController';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { GetFreeMemoryController } from './../src/Presentation/Controller/Infra/Memory/GetFreeMemController';
+import { GetFreeMemoryController } from './../Presentation/Controller/Infra/Memory/GetFreeMemController';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { GetVersion } from './../src/Presentation/Controller/Infra/Node/GetVersion';
+import { GetVersion } from './../Presentation/Controller/Infra/Node/GetVersion';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { UpdateVersion } from './../src/Presentation/Controller/Infra/Node/UpdateVersion';
+import { UpdateVersion } from './../Presentation/Controller/Infra/Node/UpdateVersion';
 import type { RequestHandler } from 'express';
 import * as express from 'express';
 

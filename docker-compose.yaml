@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: control-infra-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1337:1337"
+      - "5555:5555"
+    volumes:
+      - .:/usr/control-infra-api
