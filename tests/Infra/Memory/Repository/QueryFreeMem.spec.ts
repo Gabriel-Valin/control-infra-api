@@ -1,4 +1,4 @@
-import QueryFreeMem from "@/Infra/Memory/Repository/QueryFreeMemRepo"
+import {QueryFreeMem} from "@/Infra/Memory/Repository/QueryFreeMemRepo"
 
 const makeSut = (): QueryFreeMem => {
     const sut = new QueryFreeMem()

@@ -1,0 +1,260 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"INodeRequest": {
+				"properties": {
+					"nodeVersion": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"nodeVersion"
+				],
+				"type": "object"
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "shell-node",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/infra/cpu/info": {
+			"get": {
+				"operationId": "Handle",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {},
+										"statusCode": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"statusCode"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"cpuInfos": "1.2 GB"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get Informations about CPU's from Host",
+				"tags": [
+					"CPU"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/infra/memory/free": {
+			"get": {
+				"operationId": "Handle",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {},
+										"statusCode": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"statusCode"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"freeMem": "1.2 GB"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get Host Memory Free.",
+				"tags": [
+					"Memory"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/infra/node/version": {
+			"get": {
+				"operationId": "Handle",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {},
+										"statusCode": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"statusCode"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"nodeVersion": "v18.12.1"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Get Host node version.",
+				"tags": [
+					"Node"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/infra/node/update/version": {
+			"put": {
+				"operationId": "Handle",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {},
+										"statusCode": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"statusCode"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"newNodeVersion": "v18.16.1"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Parameters",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"message": "VersionIsNotANumber"
+										}
+									}
+								}
+							}
+						}
+					},
+					"422": {
+						"description": "Unprocessable Entity",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"message": {
+											"type": "string"
+										}
+									},
+									"required": [
+										"message"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"message": "InvalidNodeVersion|DeprecatedNodeVersion"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"description": "Update Host node version.",
+				"tags": [
+					"Node"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/INodeRequest"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

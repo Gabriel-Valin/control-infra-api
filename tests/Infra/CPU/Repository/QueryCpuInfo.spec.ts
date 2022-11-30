@@ -1,4 +1,4 @@
-import QueryCpuInfo from "@/Infra/CPU/Repository/QueryCpuInfoRepo"
+import {QueryCpuInfo} from "@/Infra/CPU/Repository/QueryCpuInfoRepo"
 
 const makeSut = (): QueryCpuInfo => {
     const sut = new QueryCpuInfo()

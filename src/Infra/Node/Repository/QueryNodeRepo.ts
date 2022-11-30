@@ -4,7 +4,7 @@ import { spawn, exec } from 'child_process'
 import { once } from 'events'
 import { cwd } from "process";
 
-export default class QueryNodeRepo implements QueryNode {
+export class QueryNodeRepo implements QueryNode {
     public async getNodeVersion(): Promise<{nodeVersion: string}> {
         try {
             const nodeVersion = spawn('node', ['--version'])

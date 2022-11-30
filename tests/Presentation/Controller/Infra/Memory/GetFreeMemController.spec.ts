@@ -1,4 +1,4 @@
-import GetFreeMemoryController from "@/Presentation/Controller/Infra/Memory/GetFreeMemController"
+import {GetFreeMemoryController} from "@/Presentation/Controller/Infra/Memory/GetFreeMemController"
 
 const makeSut = (): GetFreeMemoryController => {
     const sut = new GetFreeMemoryController()

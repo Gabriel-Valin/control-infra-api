@@ -1,4 +1,4 @@
-import CommandRepoNode from "@/Infra/Node/Repository/CommandRepoNode"
+import {CommandRepoNode} from "@/Infra/Node/Repository/CommandRepoNode"
 import { InfraError } from "@/Presentation/Error/InfraError"
 import { ChildProcess } from 'child_process'
 

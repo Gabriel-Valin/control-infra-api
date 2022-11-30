@@ -1,4 +1,4 @@
-import CpuInfoController from "@/Presentation/Controller/Infra/CPU/CpuInfoController"
+import {CpuInfoController} from "@/Presentation/Controller/Infra/CPU/CpuInfoController"
 
 const makeSut = (): CpuInfoController => {
     const sut = new CpuInfoController()

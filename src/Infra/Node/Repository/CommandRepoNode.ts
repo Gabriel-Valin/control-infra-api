@@ -7,7 +7,7 @@ export interface CommandRepo {
     updateNodeVersion(version: number): Promise<{ newNodeVersion: string } | string>
 }
 
-export default class CommandRepoNode implements CommandRepo {
+export class CommandRepoNode implements CommandRepo {
     public async updateNodeVersion(version: number): Promise<{ newNodeVersion: string } | string> {
         try {
             let output = ''

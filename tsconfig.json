@@ -16,7 +16,10 @@
       "@/tests/*": ["../tests/*"]
     },
     "strict": true,
-    "noImplicitOverride": true
+    "noImplicitOverride": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
-  "include": ["src", "tests", "tests"]
+  "include": ["src", "tests"]
 }
