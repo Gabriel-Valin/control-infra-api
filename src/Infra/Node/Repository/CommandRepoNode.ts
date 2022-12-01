@@ -1,14 +1,15 @@
+import { NodeVersion } from "@/Domain/ValueObject/NodeVersion"
 import { InfraError } from "@/Presentation/Error/InfraError"
 import { spawn } from 'child_process'
 import { once } from "events"
 import { cwd } from "process"
 
 export interface CommandRepo {
-    updateNodeVersion(version: number): Promise<{ newNodeVersion: string } | string>
+    updateNodeVersion(version: NodeVersion): Promise<{ newNodeVersion: string } | string>
 }
 
 export class CommandRepoNode implements CommandRepo {
-    public async updateNodeVersion(version: number): Promise<{ newNodeVersion: string } | string> {
+    public async updateNodeVersion(version: NodeVersion): Promise<{ newNodeVersion: string } | string> {
         try {
             let output = ''
             
@@ -28,13 +29,7 @@ export class CommandRepoNode implements CommandRepo {
             })
 
             await once(updateNodeVersionByNVM, 'close')
-
-            const regexInvalidVersion = new RegExp('N\/A')
-            const matchValue = regexInvalidVersion.test(output)
            
-            if (matchValue) {
-                return 'Invalid Node Version, please install first or typing correctly version.'
-            }
             return {
                 newNodeVersion: output.substring(69, 78).slice(0,8)
             }

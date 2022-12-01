@@ -20,7 +20,7 @@ describe('UpdateVersion', () => {
             throw new InfraError("Have error on node version command")
         })
         const sut = makeSut()
-        const promise = sut.handle({ nodeVersion: 1010 })
+        const promise = sut.handle({ nodeVersion: 16 })
         await expect(promise).rejects.toEqual(new InfraError("Have error on node version command"))
     })
 })

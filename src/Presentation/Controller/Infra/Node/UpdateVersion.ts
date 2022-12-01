@@ -1,4 +1,5 @@
 import {UpdateNodeVersionInteractor} from "@/Domain/Usecase/Node/UpdateNodeVersionInteractor";
+import { NodeVersion } from "@/Domain/ValueObject/NodeVersion";
 import {CommandRepoNode} from "@/Infra/Node/Repository/CommandRepoNode";
 import { Controller } from "@/Presentation/Protocol/Controller";
 import { Body, Tags, Example, Post, Put, Response, Route, SuccessResponse } from "tsoa";
@@ -24,13 +25,18 @@ export class UpdateVersion implements Controller {
     @Response<{ message: string }>('400', 'Bad Parameters', {
         message: 'VersionIsNotANumber'
     })
-    public async handle(@Body() params: INodeRequest): Promise<{statusCode: number; data?: any}> {
+    public async handle(@Body() params: INodeRequest): Promise<{ statusCode: number; data?: any }> {
+        const validNodeVersion = this.validateNodeVersion(params.nodeVersion.toString())
         const commandRepo = new CommandRepoNode()
         const updateNodeVersionInteractor = new UpdateNodeVersionInteractor(commandRepo)
-        const result = await updateNodeVersionInteractor.perform(params.nodeVersion)
+        const result = await updateNodeVersionInteractor.perform(validNodeVersion)
         return {
             statusCode: 200,
             data: result
         }
+    }
+
+    private validateNodeVersion(nodeVersion: string) {
+        return new NodeVersion(nodeVersion)
     }
 }
