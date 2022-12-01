@@ -7,6 +7,7 @@ import { memoryRouter } from "@/Presentation/Routes/MemoryRoutes"
 import { RegisterRoutes } from "@/OpenApi/routes"
 import swaggerUi from 'swagger-ui-express'
 import * as swaggerjson from '@/OpenApi/swagger.json'
+import { dockerRouter } from "@/Presentation/Routes/DockerRoutes"
 
 export const app = express()
 
@@ -15,6 +16,7 @@ app.use(cors())
 app.use(nodeRouter)
 app.use(cpuRouter)
 app.use(memoryRouter)
+app.use(dockerRouter)
 app.use(internalServerMiddleware)
 RegisterRoutes(app)
 
