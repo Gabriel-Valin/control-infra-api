@@ -29,6 +29,9 @@ Currently, the WebApi have minimal functions to Read/Change processes of Host as
 - Get Free Memory (Gigabytes) ✅
 - Get specifications about CPU'S ✅
 - Work with Value Objects ✅
+- Docker
+  - `docker ps`
+  - `docker ps -a`
 
 ### Future features:
 
