@@ -9,6 +9,7 @@ module.exports = {
     "!<rootDir>/src/Presentation/Routes/**",
     "!<rootDir>/src/App.ts",
     "!<rootDir>/src/Server.ts",
+    "!<rootDir>/src/OpenApi/**",
   ],
   coverageDirectory: "coverage",
   coverageProvider: "babel",
