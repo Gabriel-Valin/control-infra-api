@@ -28,10 +28,10 @@ Currently, the WebApi have minimal functions to Read/Change processes of Host as
 - See currently NodeJS version ✅
 - Get Free Memory (Gigabytes) ✅
 - Get specifications about CPU'S ✅
+- Work with Value Objects ✅
 
 ### Future features:
 
-- Work with Value Objects ⚙️
 - Informations about Docker Containers (up, sleep, network and list all containers) ⚙️
 - Change variable in .env file at specific project ⚙️
 
