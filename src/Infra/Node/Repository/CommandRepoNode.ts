@@ -24,10 +24,6 @@ export class CommandRepoNode implements CommandRepo {
                 output += data.toString()
             })
 
-            updateNodeVersionByNVM.stderr.on('data', data => {
-                output += data.toString()
-            })
-
             await once(updateNodeVersionByNVM, 'close')
            
             return {
