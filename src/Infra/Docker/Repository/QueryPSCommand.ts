@@ -7,7 +7,7 @@ export interface QueryPSDocker {
 }
 
 export class QueryPSCommand implements QueryPSDocker {
-    public async getContainers(all?: boolean): Promise<any[]> {
+    public async getContainers(all: boolean): Promise<any[]> {
         try {
             let output = ''
             const formatResult = "--no-trunc --format '{{ json . }}' | jq -s 'map({id:.ID,network:.Networks,runningFor:.RunningFor,state:.State,name:.Names,status:.Status})'"

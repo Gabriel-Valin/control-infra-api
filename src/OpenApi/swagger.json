@@ -71,6 +71,64 @@
 				"parameters": []
 			}
 		},
+		"/infra/docker/container": {
+			"get": {
+				"operationId": "Handle",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {},
+										"statusCode": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"statusCode"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 200,
+											"data": [
+												{
+													"id": "container_id",
+													"network": "network-node_default",
+													"runningFor": "10 hours ago",
+													"state": "exited",
+													"name": "container-name",
+													"status": "Exited (1) 10 hours ago"
+												}
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Docker"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "all",
+						"required": false,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/infra/memory/free": {
 			"get": {
 				"operationId": "Handle",
