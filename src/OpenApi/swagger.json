@@ -129,6 +129,62 @@
 				]
 			}
 		},
+		"/infra/docker/log/{identifier}": {
+			"get": {
+				"operationId": "Handle",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"properties": {
+										"data": {},
+										"statusCode": {
+											"type": "number",
+											"format": "double"
+										}
+									},
+									"required": [
+										"statusCode"
+									],
+									"type": "object"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"statusCode": 200,
+											"data": [
+												"2022-12-01T17:14:37.502209838Z > application@1.0.0 start",
+												"2022-12-01T17:14:37.502218428Z > node dist/start.js",
+												"2022-12-01T17:14:37.502225692Z ",
+												"2022-12-01T17:14:38.302485153Z Application is up!",
+												"2022-12-05T13:20:44.270322713Z ",
+												""
+											]
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"Docker"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "identifier",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
 		"/infra/memory/free": {
 			"get": {
 				"operationId": "Handle",

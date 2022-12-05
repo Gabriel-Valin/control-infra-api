@@ -7,6 +7,8 @@ import { CpuInfoController } from './../Presentation/Controller/Infra/CPU/CpuInf
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { GetContainer } from './../Presentation/Controller/Infra/Docker/GetContainers';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { LogContainer } from './../Presentation/Controller/Infra/Docker/LogContainer';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { GetFreeMemoryController } from './../Presentation/Controller/Infra/Memory/GetFreeMemController';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { GetVersion } from './../Presentation/Controller/Infra/Node/GetVersion';
@@ -73,6 +75,31 @@ export function RegisterRoutes(app: express.Router) {
                 validatedArgs = getValidatedArgs(args, request, response);
 
                 const controller = new GetContainer();
+
+
+              const promise = controller.handle.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/infra/docker/log/:identifier',
+            ...(fetchMiddlewares<RequestHandler>(LogContainer)),
+            ...(fetchMiddlewares<RequestHandler>(LogContainer.prototype.handle)),
+
+            function LogContainer_handle(request: any, response: any, next: any) {
+            const args = {
+                    identifier: {"in":"path","name":"identifier","required":true,"dataType":"string"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new LogContainer();
 
 
               const promise = controller.handle.apply(controller, validatedArgs as any);
