@@ -10,7 +10,7 @@ const makeSut = (): QueryPSCommand => {
 describe('QueryPSCommand', () => {
     it('should returns the list of containers if flag NOT is provided', async () => {
         const sut = makeSut()
-        const result = await sut.getContainers()
+        const result = await sut.getContainers(false)
         expect(result.length).toBeGreaterThanOrEqual(0)
     })
 
@@ -25,7 +25,7 @@ describe('QueryPSCommand', () => {
             throw new InfraError("Have error on node version command")
         })
         const sut = makeSut()
-        const promise = sut.getContainers()
+        const promise = sut.getContainers(false)
         await expect(promise).rejects.toEqual(new InfraError("Have error on node version command"))
     })
 })

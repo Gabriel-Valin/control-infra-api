@@ -24,7 +24,7 @@ export class GetContainer implements Controller {
         @Query() @Hidden() request?: any,
         @Query() all?: string,
     ): Promise<{ statusCode: number; data?: any; }> {
-        const flag = request.all === 'yes' ? true : false
+        const flag = request.all === undefined ? false : true
         const repo = new QueryPSCommand()
         const dockerPSInteractor = new DockerPSInteractor(repo)
         const result = await dockerPSInteractor.perform(flag)

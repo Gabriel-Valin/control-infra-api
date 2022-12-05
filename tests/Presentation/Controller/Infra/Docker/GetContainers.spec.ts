@@ -10,14 +10,14 @@ const makeSut = (): GetContainer => {
 describe('Version', () => {
     it('should returns 200 if parameter is provided', async () => {
         const sut = makeSut()
-        const response = await sut.handle({ all: true })
+        const response = await sut.handle({ all: 'yes' })
         expect(response.statusCode).toBe(200)
         expect(response.data.length).toBeGreaterThanOrEqual(0)
     })
 
-    it('should returns 200 and server node version', async () => {
+    it('should returns 200 if parameter is NOT provided', async () => {
         const sut = makeSut()
-        const response = await sut.handle()
+        const response = await sut.handle({})
         expect(response.statusCode).toBe(200)
         expect(response.data.length).toBeGreaterThanOrEqual(0)
     })
@@ -27,7 +27,7 @@ describe('Version', () => {
             throw new InfraError("Have error on node version command")
         })
         const sut = makeSut()
-        const promise = sut.handle()
+        const promise = sut.handle({})
         await expect(promise).rejects.toEqual(new InfraError("Have error on node version command"))
     })
 })
